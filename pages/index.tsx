@@ -1,23 +1,23 @@
-import type { NextPage } from 'next'
-import { useState } from 'react'
+import Link from "next/link"
 import styles from '../styles/Home.module.css'
-import { chat } from '../utils/client'
 
-const Home: NextPage = () => {
-  const [count, setCount] = useState<number>(0);
-
-  const increment = () => setCount(count +1)
-
-  const handleClick = async () => {
-    chat(`hi ${count}`);
-    increment()
-  }
-  return (
-    <div className={styles.container}>
-      
-      <button onClick={handleClick}>{`Say Hello ${count}`}</button>
-    </div>
-  )
+function Page() {
+    return (
+        <div className={styles.container}>
+            <h1>hello</h1>
+            <hr />
+            <nav>
+                <ul>
+                    <li>
+                        <Link href={'/problematic-ssr'}>problematic-ssr</Link>
+                    </li>
+                    <li>
+                        <Link href={'/fixed-ssr'}>fixed-ssr</Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    )
 }
 
-export default Home
+export default Page
